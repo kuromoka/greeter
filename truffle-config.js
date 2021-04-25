@@ -57,6 +57,18 @@ module.exports = {
       },
       network_id: "*",
     },
+
+    rinkeby: {
+      provider: () => {
+        const mnemonic = process.env["MNEMONIC"]
+        const project_id = process.env["INFURA_PROJECT_ID"]
+        return new HDWallterProvider(
+          mnemonic,
+          `https://rinkeby.infura.io/v3/${project_id}`
+        );
+      },
+      network_id: "*"
+    }
     // Another network with more advanced options...
     // advanced: {
     // port: 8777,             // Custom port
